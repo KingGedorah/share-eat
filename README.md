@@ -43,7 +43,7 @@ Pada tampilan *customer*, *customer* dapat melihat daftar restoran yang tersedia
 2.    Menambahkan middleware agar API dapat diakses dari luar website
 3.    Membuat async function - function untuk pengolahan data
 4.    Pengambilan data dari web yang sudah terintegrasi akan menggunakan HTTP Get dan data yang sudah diambil tadi akan ditampilkan pada aplikasi yang sudah dibuat. Untuk pengiriman data,  akan digunakan HTTP Post yang nantinya akan tersimpan di database web aplikasi Django yang terintegrasi
-
+<br>
 
 ## 🧍 Persona 🧍
 - 👤 *User* yang belum *login* 👤
