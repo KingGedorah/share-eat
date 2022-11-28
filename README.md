@@ -3,6 +3,7 @@ Sebuah tempat untuk membeli makanan dengan *partner* restoran dengan diskon lebi
 <br>
 
 **Kini, dapat diakses secara langsung melalui ponsel.**
+<br>
 
 > Proyek ini dibuat untuk memenuhi tugas Proyek Akhir Semester (PAS)
 > pada mata kuliah Pemrograman Berbasis Platform (CSGE602022) yang
