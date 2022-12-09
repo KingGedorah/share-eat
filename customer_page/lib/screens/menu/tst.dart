@@ -13,7 +13,15 @@ class _MenuPageState extends State<MyMenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Menu')),
+        appBar: AppBar(
+          title: const Text('Menu'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
         body: FutureBuilder(
             future: fetchMenuPage(),
             builder: (context, AsyncSnapshot snapshot) {
@@ -32,8 +40,7 @@ class _MenuPageState extends State<MyMenuPage> {
                     ],
                   );
                 } else {
-                  return Container(
-                      child: ListView.builder(
+                  return ListView.builder(
                     itemCount: snapshot.data!.length,
                     itemBuilder: (_, index) => Dismissible(
                         key: Key(snapshot.data[index]),
@@ -61,7 +68,7 @@ class _MenuPageState extends State<MyMenuPage> {
                             },
                             child: Card(
                               elevation: 5,
-                              child: Container(
+                              child: SizedBox(
                                 height: 100.0,
                                 child: Row(children: [
                                   Container(
@@ -73,10 +80,11 @@ class _MenuPageState extends State<MyMenuPage> {
                                             topLeft: Radius.circular(5.0)),
                                         image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: AssetImage(
-                                                'assets/${snapshot.data[index].image}'))),
+                                            image: AssetImage(snapshot
+                                                .data![index].fields.image
+                                                .toString()))),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: 100.0,
                                     child: Padding(
                                         padding: const EdgeInsets.fromLTRB(
@@ -86,7 +94,7 @@ class _MenuPageState extends State<MyMenuPage> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                                '${snapshot.data[index].name}'),
+                                                '${snapshot.data![index].fields.name}'),
                                             Padding(
                                               padding:
                                                   const EdgeInsets.fromLTRB(
@@ -99,7 +107,7 @@ class _MenuPageState extends State<MyMenuPage> {
                                                                 .fromARGB(255,
                                                             215, 133, 26))),
                                                 child: Text(
-                                                  'Rp${snapshot.data[index].harga}',
+                                                  'Rp${snapshot.data![index].fields.harga}',
                                                   textAlign: TextAlign.center,
                                                 ),
                                               ),
@@ -110,7 +118,7 @@ class _MenuPageState extends State<MyMenuPage> {
                                 ]),
                               ),
                             ))),
-                  ));
+                  );
                 }
               }
             }));

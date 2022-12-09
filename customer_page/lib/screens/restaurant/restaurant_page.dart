@@ -2,6 +2,7 @@ import 'package:customer_page/screens/menu/tst.dart';
 import 'package:flutter/material.dart';
 // import 'package:customer_page/pages/drawer.dart';
 import 'package:customer_page/fetch/restaurantpage_fetch.dart';
+import 'package:share_eat/drawer.dart';
 
 class MyRestaurantPage extends StatefulWidget {
   const MyRestaurantPage({super.key});
@@ -16,8 +17,23 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Restaurant'),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              icon: const Icon(
+                color: Colors.white,
+                Icons.shopping_cart
+                ),
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyRestaurantPage())
+                  );
+                },
+            )
+          ],
         ),
-        // drawer: const MyDrawer(),
+        drawer: const MyDrawer(),
         body: FutureBuilder(
             future: fetchRestaurantPage(),
             builder: (context, AsyncSnapshot snapshot) {
@@ -30,7 +46,7 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                       Text(
                         "Restoran tidak tersedia",
                         style:
-                            TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                            TextStyle(color: Color(0xff59A5D8), fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 8),
                     ],
@@ -50,10 +66,12 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                               "${snapshot.data![index].fields.name}",
                               style: const TextStyle(
                                 fontSize: 18.0,
+                                overflow: TextOverflow.ellipsis,
+                                fontWeight: FontWeight.bold
                               ),
                             ),
                             subtitle: Text(
-                                "alamat: ${snapshot.data![index].fields.alamat}\nNo.Telp: ${snapshot.data![index].fields.noTelp}"),
+                                "Alamat: ${snapshot.data![index].fields.alamat}\nNo.Telp: ${snapshot.data![index].fields.noTelp}"),
                             onTap: () {
                               Navigator.push(
                                 context,

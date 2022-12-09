@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../models/menu_model.dart';
+import '../models/restaurant_model.dart';
 
 Future<List<MenuPage>> fetchMenuPage() async {
   var url = Uri.parse(
@@ -14,10 +15,12 @@ Future<List<MenuPage>> fetchMenuPage() async {
   );
 
   var data = jsonDecode(utf8.decode(response.bodyBytes));
+  MenuPage? menuPage;
+  RestaurantPage? restaurantPage;
 
   List<MenuPage> listMenu = [];
   for (var d in data) {
-    if (d != null) {
+    if (d != null && restaurantPage!.pk == menuPage!.fields.seller) {
       listMenu.add(MenuPage.fromJson(d));
     }
   }
