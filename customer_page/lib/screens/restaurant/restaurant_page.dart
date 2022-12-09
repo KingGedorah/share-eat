@@ -1,4 +1,4 @@
-import 'package:customer_page/screens/menu/menu_page.dart';
+import 'package:customer_page/screens/menu/tst.dart';
 import 'package:flutter/material.dart';
 // import 'package:customer_page/pages/drawer.dart';
 import 'package:customer_page/fetch/restaurantpage_fetch.dart';
@@ -43,30 +43,25 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                               horizontal: 16, vertical: 8),
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              border: Border.all(
-                                width: 2,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(10.0)),
+                              borderRadius: BorderRadius.circular(10.0)),
+                          child: ListTile(
+                            leading: const Icon(Icons.restaurant_outlined),
+                            title: Text(
+                              "${snapshot.data![index].fields.name}",
+                              style: const TextStyle(
+                                fontSize: 18.0,
                               ),
-                              child: ListTile(
-                                leading: const Icon(Icons.restaurant_outlined),
-                                title: Text(
-                                  "${snapshot.data![index].fields.name}",
-                                  style: const TextStyle(
-                                    fontSize: 18.0,
-                                  ),
-                                ),
-                                subtitle: Text(
-                                    "alamat: ${snapshot.data![index].fields.alamat}\nNo.Telp: ${snapshot.data![index].fields.noTelp}"),
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const MyMenuPage()),
-                                  );
-                                },
-                              ))));
+                            ),
+                            subtitle: Text(
+                                "alamat: ${snapshot.data![index].fields.alamat}\nNo.Telp: ${snapshot.data![index].fields.noTelp}"),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MyMenuPage()),
+                              );
+                            },
+                          )));
                 }
               }
             }));
