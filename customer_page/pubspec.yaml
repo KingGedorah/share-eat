@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  share-eat:
+  share_eat:
     path: ../.
 
 dev_dependencies:

@@ -1,16 +1,16 @@
+import 'package:customer_page/screens/menu/menu_page.dart';
 import 'package:flutter/material.dart';
 // import 'package:customer_page/pages/drawer.dart';
 import 'package:customer_page/fetch/restaurantpage_fetch.dart';
-import 'package:customer_page/screens/menu/menu_page.dart';
 
-class myRestaurantPage extends StatefulWidget {
-  const myRestaurantPage({super.key});
+class MyRestaurantPage extends StatefulWidget {
+  const MyRestaurantPage({super.key});
 
   @override
-  State<myRestaurantPage> createState() => _MyWatchListPageState();
+  State<MyRestaurantPage> createState() => _RestaurantPageState();
 }
 
-class _MyWatchListPageState extends State<myRestaurantPage> {
+class _RestaurantPageState extends State<MyRestaurantPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,32 +42,31 @@ class _MyWatchListPageState extends State<myRestaurantPage> {
                           margin: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(
-                              width: 2,
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: ListTile(
-                            leading: const Icon(Icons.restaurant_outlined),
-                            title: Text(
-                              "${snapshot.data![index].fields.name}",
-                              style: const TextStyle(
-                                fontSize: 18.0,
+                              color: Colors.white,
+                              border: Border.all(
+                                width: 2,
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10.0)),
                               ),
-                            ),
-                            subtitle: Text(
-                              "alamat: ${snapshot.data![index].fields.alamat}\nNo.Telp: ${snapshot.data![index].fields.noTelp}"
-                            )
-                            
-                            // onTap: () {
-                            //   Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => MyWatchListDetail(
-                            //             mwl: snapshot.data![index])),
-                            //   );
-                            // },
-                          )));
+                              child: ListTile(
+                                leading: const Icon(Icons.restaurant_outlined),
+                                title: Text(
+                                  "${snapshot.data![index].fields.name}",
+                                  style: const TextStyle(
+                                    fontSize: 18.0,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                    "alamat: ${snapshot.data![index].fields.alamat}\nNo.Telp: ${snapshot.data![index].fields.noTelp}"),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MyMenuPage()),
+                                  );
+                                },
+                              ))));
                 }
               }
             }));

@@ -1,11 +1,12 @@
-import 'package:share-eat/customer_page/model/restaurant_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-Future<List<RestaurantPage>> fetchRestaurantPage() async {
+import '../models/restaurant_model.dart';
 
-  var url =
-  Uri.parse('https://share-eat-d02.up.railway.app/order-page_for_cust/json/');
+Future<List<RestaurantPage>> fetchRestaurantPage() async {
+  var url = Uri.parse(
+      'https://share-eat-d02.up.railway.app/order-page_for_cust/json/');
+  //Uri.parse('https://share-eat-d02.up.railway.app/loginpage/json/');
   var response = await http.get(
     url,
     headers: {
