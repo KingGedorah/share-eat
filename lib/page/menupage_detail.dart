@@ -1,6 +1,6 @@
-import 'package:customer_page/models/menu_model.dart';
+import 'package:share_eat/model/menu_model.dart';
 import 'package:flutter/material.dart';
-import 'package:customer_page/models/menu_model.dart';
+//import 'package:share_eat/model/menu_model.dart';
 
 
 class MenuDetail extends StatelessWidget {

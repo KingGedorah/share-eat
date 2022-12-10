@@ -1,8 +1,9 @@
-import 'package:customer_page/screens/menu/tst.dart';
+import 'package:share_eat/page/tst.dart';
 import 'package:flutter/material.dart';
 // import 'package:customer_page/pages/drawer.dart';
-import 'package:customer_page/fetch/restaurantpage_fetch.dart';
-import 'package:share_eat/drawer.dart';
+import 'package:share_eat/fetch/restaurantpage_fetch.dart';
+import 'package:share_eat/drawer/drawer.dart';
+// import 'package:google_fonts/google_fonts.dart'
 
 class MyRestaurantPage extends StatefulWidget {
   const MyRestaurantPage({super.key});
@@ -57,6 +58,7 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                       itemBuilder: (_, index) => Container(
                           margin: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
+                              
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10.0)),
@@ -76,7 +78,7 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const MyMenuPage()),
+                                    builder: (context) => MyMenuPage(idresto: snapshot.data![index].pk)),
                               );
                             },
                           )));

@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import '../models/restaurant_model.dart';
+import '../model/restaurant_model.dart';
 
 Future<List<RestaurantPage>> fetchRestaurantPage() async {
   var url = Uri.parse(

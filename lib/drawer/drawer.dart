@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:customer_page/screens/restaurant/restaurant_page.dart';
+import 'package:share_eat/restaurant_page.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
