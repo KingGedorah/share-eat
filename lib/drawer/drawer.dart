@@ -5,6 +5,9 @@ import 'package:share_eat/login.dart';
 import 'package:share_eat/register.dart';
 import 'package:share_eat/page_makanan.dart';
 
+import '../page/profile_page_customer.dart';
+import '../page/profile_page_seller.dart';
+
 class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -40,6 +43,26 @@ class DrawerWidget extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const RegisterPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Profile Page (Seller)'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfilePageSeller()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Profile Page (Customer)'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfilePageCustomer()),
               );
             },
           ),

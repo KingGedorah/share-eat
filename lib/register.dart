@@ -225,7 +225,7 @@ class RegisterPageState extends State<RegisterPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Judul1 tidak boleh kosong!';
+                        return 'Password tidak boleh kosong!';
                       }
                       return null;
                     },
