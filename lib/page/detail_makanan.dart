@@ -22,7 +22,8 @@ class _DetailPageState extends State<DetailPage> {
   deleteMakanan(request, id) async {
     // print(request.headers.cookie);
     final response = await http.delete(
-        Uri.parse('http://127.0.0.1:8000/seller_menu/delete/makanan/${id}'),
+        Uri.parse(
+            'https://share-eat-d02.up.railway.app/seller_menu/delete/makanan/${id}'),
         headers: request.headers);
     return Navigator.pushReplacement(
       context,
@@ -70,7 +71,7 @@ class _DetailPageState extends State<DetailPage> {
 
                 child: new InkWell(
               child: new Image.network(
-                'http://127.0.0.1:8000/static/${widget.makanan.fields.image}',
+                'https://share-eat-d02.up.railway.app/static/${widget.makanan.fields.image}',
                 height: 150,
               ),
             ))
