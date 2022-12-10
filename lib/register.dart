@@ -5,14 +5,14 @@ import 'package:share_eat/drawer/drawer.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => LoginPageState();
+  State<RegisterPage> createState() => RegisterPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
+class RegisterPageState extends State<RegisterPage> {
   final _loginFormKey = GlobalKey<FormState>();
   String username1 = "";
   bool isPasswordVisible = false;
@@ -59,7 +59,7 @@ class LoginPageState extends State<LoginPage> {
     final request = context.watch<CookieRequest>();
     return Scaffold(
         appBar: AppBar(
-          title: Text('Login Page'),
+          title: Text('Register Page'),
         ),
         drawer: DrawerWidget(),
         body: Form(
@@ -104,6 +104,105 @@ class LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
+                      hintText: "Nama",
+
+                      // Menambahkan circular border agar lebih rapi
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    // Menambahkan behavior saat nama diketik
+                    onChanged: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Menambahkan behavior saat data disimpan
+                    onSaved: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Validator sebagai validasi form
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Nama tidak boleh kosong!';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  // Menggunakan padding sebesar 8 pixels
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Alamat",
+
+                      // Menambahkan circular border agar lebih rapi
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    // Menambahkan behavior saat nama diketik
+                    onChanged: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Menambahkan behavior saat data disimpan
+                    onSaved: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Validator sebagai validasi form
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Alamat tidak boleh kosong!';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  // Menggunakan padding sebesar 8 pixels
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Nomor telepon",
+
+                      // Menambahkan circular border agar lebih rapi
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    // Menambahkan behavior saat nama diketik
+                    onChanged: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Menambahkan behavior saat data disimpan
+                    onSaved: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Validator sebagai validasi form
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Nomor telepon tidak boleh kosong!';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  // Menggunakan padding sebesar 8 pixels
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
                       hintText: "Password",
 
                       // Menambahkan circular border agar lebih rapi
@@ -136,7 +235,7 @@ class LoginPageState extends State<LoginPage> {
                   alignment: Alignment.bottomCenter,
                   child: TextButton(
                     child: const Text(
-                      "Log in",
+                      "Register",
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ButtonStyle(

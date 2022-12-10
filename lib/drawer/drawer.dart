@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:share_eat/form/buat_makanan.dart';
 import 'package:share_eat/main.dart';
 import 'package:share_eat/login.dart';
+import 'package:share_eat/register.dart';
 import 'package:share_eat/page_makanan.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -23,12 +24,22 @@ class DrawerWidget extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Auth'),
+            title: const Text('Login Page'),
             onTap: () {
               // Route menu ke halaman form
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Register Page'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const RegisterPage()),
               );
             },
           ),
