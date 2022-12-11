@@ -27,10 +27,10 @@ class LoginPageState extends State<LoginPage> {
 
   login(request) async {
     // final request = context.read<CookieRequest>();
-    print("USSERNAME: " + username);
-    print("PASS: " + password);
-    print("COOKIES:\n" + request.cookies.toString());
-    print("HEADERS:\n" + request.headers.toString());
+    // print("USSERNAME: " + username);
+    // print("PASS: " + password);
+    // print("COOKIES:\n" + request.cookies.toString());
+    // print("HEADERS:\n" + request.headers.toString());
     // print(request.headers);
     final response = await request.login(
         "https://share-eat-d02.up.railway.app/loginpage/login/restaurant/flutter",
@@ -40,15 +40,15 @@ class LoginPageState extends State<LoginPage> {
           'username': username,
           'password': password,
         });
-    print("COOKIES:\n" + request.cookies.toString());
-    print("HEADERS:\n" + request.headers.toString());
+    // print("COOKIES:\n" + request.cookies.toString());
+    // print("HEADERS:\n" + request.headers.toString());
     if (request.loggedIn) {
-      Text("Hello");
-      print("worked");
-      print(request.cookies);
-      print(request.headers);
-      print(response["user"]);
-      print(username);
+      // Text("Hello");
+      // print("worked");
+      // print(request.cookies);
+      // print(request.headers);
+      // print(response["user"]);
+      // print(username);
       // final test = json.decode(response);
       // print(test);
       // final response1 =
@@ -59,7 +59,7 @@ class LoginPageState extends State<LoginPage> {
       // });
       // Code here will run if the login succeeded.
     } else {
-      print("note not worked");
+      // print("note not worked");
       // Code here will run if the login failed (wrong username/password).
     }
     // print(response.body);
