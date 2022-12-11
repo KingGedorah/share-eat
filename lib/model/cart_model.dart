@@ -13,23 +13,19 @@ String cartPageToJson(List<CartUser> data) => json.encode(List<dynamic>.from(dat
 
 class CartUser {
   CartUser({
-    required this.model,
     required this.pk,
     required this.fields,
   });
 
-  String model;
   int pk;
   Fields fields;
 
-  factory CartUser.fromJson(Map<String, dynamic> json) => CartUser(
-    model: json["model"], 
+  factory CartUser.fromJson(Map<String, dynamic> json) => CartUser( 
     pk: json["pk"], 
     fields: Fields.fromJson(json["fields"]),
   );
 
   Map<String, dynamic> toJson() => {
-    "model": model,
     "pk": pk,
     "fields": fields.toJson(),
   };
