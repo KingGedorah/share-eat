@@ -45,7 +45,7 @@ class Fields {
   });
   int user;
   int add_cart;
-  String keranjang;
+  int keranjang;
   Makanan makanan;
 
   factory Fields.fromJson(Map<String, dynamic> json) => Fields(
@@ -98,5 +98,7 @@ class Makanan {
         "harga": harga,
         "stok": stok,
     };
+
+
 }
 
