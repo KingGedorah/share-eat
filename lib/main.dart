@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:share_eat/daftar_pesanan_page.dart';
-import 'package:share_eat/homepage.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:share_eat/daftar_pesanan_seller/login.dart';
+import 'package:share_eat/daftar_pesanan_seller/page/add_gratisan_page.dart';
+import 'package:share_eat/daftar_pesanan_seller/page/daftar_pesanan_page.dart';
+import 'package:share_eat/daftar_pesanan_seller/page/home_page.dart';
+import 'package:share_eat/daftar_pesanan_seller/page/lihat_pesanan_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,53 +30,75 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: MaterialColor(0xFF61764B, themeColor),
-      ),
-      home: const HomePage(),
-      onGenerateRoute: (RouteSettings settings) {
-        switch (settings.name) {
-          case HomePage.ROUTE_NAME:
-            return MaterialPageRoute(builder: (_) => const HomePage());
-          case DaftarPesananPage.ROUTE_NAME:
-            return MaterialPageRoute(builder: (_) => const DaftarPesananPage());
-          default:
-            return MaterialPageRoute(
-              builder: (_) {
-                return Scaffold(
-                  body: Center(
-                    child: Column(
-                      children: [
-                        Center(
-                          child: Text('Page yang kamu tuju tidak ada.'),
-                        ),
-                        Center(
-                          child: TextButton(
-                            onPressed: () => {Navigator.pop(context)},
-                            child: const Text(
-                              "Kembali",
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 72, 90, 53)),
-                            ),
-                            style: TextButton.styleFrom(
-                              backgroundColor:
-                                  Color.fromARGB(255, 184, 204, 162),
-                              padding: const EdgeInsets.all(8.0),
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              alignment: Alignment.center,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            );
-        }
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
       },
+      child: MaterialApp(
+        title: 'ShareEat',
+        theme: ThemeData(
+          primarySwatch: MaterialColor(0xFF61764B, themeColor),
+        ),
+        home: const HomePage(),
+        onGenerateRoute: (RouteSettings settings) {
+          switch (settings.name) {
+            case HomePage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => const HomePage());
+            case DaftarPesananPage.ROUTE_NAME:
+              return MaterialPageRoute(
+                  builder: (_) => const DaftarPesananPage());
+            case AddGratisanPage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => const AddGratisanPage());
+            case LihatPesanan.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => const LihatPesanan());
+            case LoginPage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => const LoginPage());
+            default:
+              return MaterialPageRoute(
+                builder: (_) {
+                  return Scaffold(
+                    body: SafeArea(
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Center(
+                              child: Text(
+                                'Oopss.. page yang kamu tuju tidak ada :(',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Center(
+                              child: TextButton(
+                                onPressed: () => {Navigator.pop(context)},
+                                child: const Text(
+                                  "Kembali",
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 72, 90, 53)),
+                                ),
+                                style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      Color.fromARGB(255, 184, 204, 162),
+                                  padding: const EdgeInsets.all(8.0),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  alignment: Alignment.center,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+          }
+        },
+      ),
     );
   }
 }

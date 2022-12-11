@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:share_eat/drawer_app.dart';
+import 'package:share_eat/daftar_pesanan_seller/widget/drawer_app.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           'Halo, ShareEaters!',
         ),
       ),
-      drawer: const DrawerApp(ROUTE_NAME),
+      drawer: const DrawerApp(HomePage.ROUTE_NAME),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:share_eat/daftar_pesanan_page.dart';
-import 'package:share_eat/homepage.dart';
+import 'package:share_eat/daftar_pesanan_seller/login.dart';
+import 'package:share_eat/daftar_pesanan_seller/page/daftar_pesanan_page.dart';
+import 'package:share_eat/daftar_pesanan_seller/page/home_page.dart';
 
 class DrawerApp extends StatelessWidget {
   final String route;
@@ -45,6 +46,15 @@ class DrawerApp extends StatelessWidget {
                   ? Navigator.pop(context)
                   : Navigator.pushReplacementNamed(
                       context, HomePage.ROUTE_NAME);
+            },
+          ),
+          ListTile(
+            title: const Text('Loginpage'),
+            onTap: () {
+              route == LoginPage.ROUTE_NAME
+                  ? Navigator.pop(context)
+                  : Navigator.pushReplacementNamed(
+                      context, LoginPage.ROUTE_NAME);
             },
           ),
           ListTile(
