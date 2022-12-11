@@ -73,7 +73,7 @@ class Makanan {
     String name;
     String image;
     String description;
-    int seller;
+    String seller;
     int harga;
     int stok;
 

@@ -28,15 +28,20 @@ class __UserCartPageState extends State<UserCartPage> {
   //   },
   // );
 
-  var data =jsonDecode(utf8.decode(url.bodyBytes));
+  // var data =jsonDecode(utf8.decode(url.bodyBytes));
 
   List<CartUser> listCart = [];
-  for(var d in data) {
+  for(var d in url["data"]) {
     if (d != null) {
       listCart.add(CartUser.fromJson(d));
     }
   }
 
+  if (listCart.isEmpty) {
+    print("Kosong");
+  } else {
+    print("Berhasil");
+  }
   print(listCart);
   return listCart;
   }
@@ -51,10 +56,10 @@ class __UserCartPageState extends State<UserCartPage> {
   //   },
   // );
 
-  var data = jsonDecode(utf8.decode(url.bodyBytes));
+  // var data = jsonDecode(utf8.decode(url.bodyBytes));
 
   List<CatatanUser> listCatatan = [];
-  for(var d in data) {
+  for(var d in url) {
     if (d != null) {
       listCatatan.add(CatatanUser.fromJson(d));
     }
@@ -100,7 +105,7 @@ class __UserCartPageState extends State<UserCartPage> {
                               Padding(
                                 padding: const EdgeInsets.all(10),
                                 child: Text(
-                                  "${snapshot.data![index].fields.makanan['name']}",
+                                  "${snapshot.data![index].fields.makanan.name}",
                                   style: const TextStyle(
                                     fontSize: 17.0,
                                   ),
