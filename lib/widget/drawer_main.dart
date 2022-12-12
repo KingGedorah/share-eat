@@ -4,15 +4,14 @@ import 'package:provider/provider.dart';
 import 'package:share_eat/daftar_pesanan_seller/login.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/daftar_pesanan_page.dart';
 import 'package:share_eat/page/home_page.dart';
-import 'package:share_eat/page/homepage_resto.dart';
 import 'package:share_eat/seller_menu/form/buat_makanan.dart';
 
 import '../seller_menu/page/page_makanan.dart';
 
-class DrawerApp extends StatelessWidget {
+class DrawerMain extends StatelessWidget {
   final String route;
 
-  const DrawerApp(this.route, {Key? key}) : super(key: key);
+  const DrawerMain(this.route, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,36 +73,7 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             title: const Text('Homepage'),
             onTap: () {
-              Navigator.pushReplacementNamed(context, HomePageResto.ROUTE_NAME);
-            },
-          ),
-          ListTile(
-            title: const Text('Seller Page'),
-            onTap: () {
-              // Route menu ke halaman form
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MakananPage()),
-              );
-            },
-          ),
-          ListTile(
-              title: const Text('Tambah Makanan'),
-              onTap: () {
-                // Route menu ke halaman form
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const BuatMakananFormPage()),
-                );
-              }),
-          ListTile(
-            title: const Text('Daftar Pesanan Seller'),
-            onTap: () {
-              route == DaftarPesananPage.ROUTE_NAME
-                  ? Navigator.pop(context)
-                  : Navigator.pushReplacementNamed(
-                      context, DaftarPesananPage.ROUTE_NAME);
+              Navigator.pushReplacementNamed(context, HomePage.ROUTE_NAME);
             },
           ),
         ],

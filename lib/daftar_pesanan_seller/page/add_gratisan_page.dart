@@ -40,6 +40,78 @@ class _AddGratisanPageState extends State<AddGratisanPage> {
             'name': name,
             'description': customer,
           });
+
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(32.0),
+                topLeft: Radius.circular(16.0),
+                bottomRight: Radius.circular(32.0),
+                topRight: Radius.circular(16.0),
+              ),
+            ),
+            contentPadding: const EdgeInsets.only(top: 10.0),
+            content: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  const Divider(
+                    color: Colors.grey,
+                    height: 8.0,
+                  ),
+                  const SizedBox(height: 30),
+                  const Center(
+                    child: Text(
+                      'Terimakasih sudah berbagi!',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+                  InkWell(
+                    onTap: () => {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DaftarPesananPage()),
+                      ),
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF61764B),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(32.0),
+                          bottomRight: Radius.circular(32.0),
+                        ),
+                      ),
+                      child: const Text(
+                        "BACK",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
     } catch (e) {
       showDialog(
         context: context,
@@ -112,10 +184,6 @@ class _AddGratisanPageState extends State<AddGratisanPage> {
       return;
     }
     // print(response.toString());
-    return Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const DaftarPesananPage()),
-    );
   }
 
   @override
@@ -221,41 +289,6 @@ class _AddGratisanPageState extends State<AddGratisanPage> {
                       final pesanan = new _Pesanan(name!, customer!);
                       // print("MASUK BUTTON");
                       addGratisan(request, pesanan);
-                      // showDialog(
-                      //   context: context,
-                      //   builder: (context) {
-                      //     return Dialog(
-                      //       shape: RoundedRectangleBorder(
-                      //         borderRadius: BorderRadius.circular(10),
-                      //       ),
-                      //       elevation: 15,
-                      //       child: Container(
-                      //         child: ListView(
-                      //           padding:
-                      //               const EdgeInsets.only(top: 20, bottom: 20),
-                      //           shrinkWrap: true,
-                      //           children: <Widget>[
-                      //             Center(
-                      //               child:
-                      //                   const Text('Berhasil Menambahkan Data'),
-                      //             ),
-                      //             SizedBox(height: 20),
-                      //             TextButton(
-                      //               onPressed: () {
-                      //                 // dynamic pesanan =
-                      //                 //     new _Pesanan(name!, customer!);
-
-                      //                 // addGratisan(request, pesanan);
-                      //               },
-                      //               child: Text('Kembali'),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //     );
-                      //   },
-                      // );
-
                       // Pesanan.idCounter = <punya_web>;
                       // listPesanan.add(
                       //   Pesanan(

@@ -3,7 +3,10 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:flutter/material.dart';
 // import 'package:share_eat/drawer/drawer.dart';
 import 'package:http/http.dart' as http;
+import 'package:share_eat/page/homepage_customer.dart';
+import 'package:share_eat/page/homepage_resto.dart';
 import 'package:share_eat/widget/drawer_app.dart';
+import 'package:share_eat/widget/drawer_main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -43,6 +46,12 @@ class LoginPageState extends State<LoginPage> {
     // print("COOKIES:\n" + request.cookies.toString());
     // print("HEADERS:\n" + request.headers.toString());
     if (request.loggedIn) {
+      // print(response['tipe']);
+      if (response['tipe'] == 'seller') {
+        Navigator.pushReplacementNamed(context, HomePageResto.ROUTE_NAME);
+      } else {
+        Navigator.pushReplacementNamed(context, HomePageCust.ROUTE_NAME);
+      }
       // Text("Hello");
       // print("worked");
       // print(request.cookies);
@@ -73,7 +82,7 @@ class LoginPageState extends State<LoginPage> {
         appBar: AppBar(
           title: Text('Loginpage'),
         ),
-        drawer: DrawerApp(LoginPage.ROUTE_NAME),
+        drawer: DrawerMain(LoginPage.ROUTE_NAME),
         body: Form(
             key: _loginFormKey,
             child: Column(

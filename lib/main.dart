@@ -4,8 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:share_eat/daftar_pesanan_seller/login.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/add_gratisan_page.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/daftar_pesanan_page.dart';
-import 'package:share_eat/daftar_pesanan_seller/page/home_page.dart';
+import 'package:share_eat/page/home_page.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/lihat_pesanan_page.dart';
+import 'package:share_eat/page/homepage_customer.dart';
+import 'package:share_eat/page/homepage_resto.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,6 +47,10 @@ class MyApp extends StatelessWidget {
           switch (settings.name) {
             case HomePage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => const HomePage());
+            case HomePageCust.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => const HomePageCust());
+            case HomePageResto.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => const HomePageResto());
             case DaftarPesananPage.ROUTE_NAME:
               return MaterialPageRoute(
                   builder: (_) => const DaftarPesananPage());
