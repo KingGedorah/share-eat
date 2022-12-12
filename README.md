@@ -33,7 +33,7 @@ Pada tampilan *customer*, *customer* dapat melihat daftar restoran yang tersedia
 ## 📗 Modul dan Kontrak Kerja 📗
 - *__Landing Page__.* :  Page awal yang berisikan tentang penjelasan secara umum Share-Eat *(Astrid)*
 - *__Login & Register__*: Tampilan login dan register untuk pengguna lama ataupun calon - pengguna  baru. *(Astrid)*
-- *__Customer Page__*: Tampilan daftar __restaurant__ beserta menu yg dijual untuk __Customer__. *(Alizha)*
+- *__Customer Page__*: Menampilkan daftar __restaurant__ beserta menu yg dijual untuk __Customer__. Pada tampilan menu dari __restaurant__, __customer__ dapat menginput jumlah makanan yang ingin dibeli. *(Alizha)*
 - *__Order page for Customer__*: Keranjang untuk merekap pesanan dan menampilkan makanan yang telah dipesan. *(Naufal)*
 - *__Order page for Seller__*: Menampilkan daftar pesanan yang dipesan oleh Customer. *(Achieva)*
 - *__Restaurant Page__.* :  Menambahkan menu dan mengedit stok yang tersedia di partner restoran. *(Jason)*

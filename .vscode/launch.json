@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "name": "share-eat",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "share-eat (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "share-eat (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "customer_page",
+            "cwd": "customer_page",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "customer_page (profile mode)",
+            "cwd": "customer_page",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "customer_page (release mode)",
+            "cwd": "customer_page",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

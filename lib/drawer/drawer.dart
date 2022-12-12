@@ -4,7 +4,7 @@ import 'package:share_eat/main.dart';
 import 'package:share_eat/login.dart';
 import 'package:share_eat/register.dart';
 import 'package:share_eat/page_makanan.dart';
-
+import 'package:share_eat/restaurant_page.dart';
 import '../page/profile_page_customer.dart';
 import '../page/profile_page_seller.dart';
 
@@ -101,5 +101,31 @@ class DrawerWidget extends StatelessWidget {
     //     ),
     //   ),
     // );
+  }
+}
+
+class MyDrawer extends StatefulWidget {
+  const MyDrawer({super.key});
+
+  @override
+  State<MyDrawer> createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer>{
+  @override
+  Widget build(BuildContext context){
+    return Drawer(
+      child: Column(
+        children: [
+          ListTile(
+            title: const Text('Restaurant'),
+            onTap: (){
+              Navigator.pushReplacement(
+                context, 
+                MaterialPageRoute(builder:(context) => const MyRestaurantPage()));
+            },
+          )
+        ]),
+    );
   }
 }

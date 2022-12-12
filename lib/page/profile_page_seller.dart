@@ -6,39 +6,39 @@ import 'package:share_eat/model/profile.dart';
 import '../drawer/drawer.dart';
 
 class ProfilePageSeller extends StatefulWidget {
-    const ProfilePageSeller({Key? key}) : super(key: key);
+  const ProfilePageSeller({Key? key}) : super(key: key);
 
-    @override
-    _ProfilePageSellerState createState() => _ProfilePageSellerState();
+  @override
+  _ProfilePageSellerState createState() => _ProfilePageSellerState();
 }
 
 class _ProfilePageSellerState extends State<ProfilePageSeller> {
-    Future<List<Profile>> fetchProfile() async {
-        var url = Uri.parse('https://share-eat-d02.up.railway.app/loginpage/json_seller/');
-        var response = await http.get(
-        url,
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-        },
-        );
+  Future<List<Profile>> fetchProfile() async {
+    var url = Uri.parse(
+        'https://share-eat-d02.up.railway.app/loginpage/json_seller/');
+    var response = await http.get(
+      url,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    );
 
-        // melakukan decode response menjadi bentuk json
-        var data = jsonDecode(utf8.decode(response.bodyBytes));
+    // melakukan decode response menjadi bentuk json
+    var data = jsonDecode(utf8.decode(response.bodyBytes));
 
-        // melakukan konversi data json menjadi object ToDo
-        List<Profile> listProfileSeller = [];
-        for (var d in data) {
-        if (d != null) {
-            listProfileSeller.add(Profile.fromJson(d));
-        }
-        }
-
-        return listProfileSeller;
+    // melakukan konversi data json menjadi object ToDo
+    List<Profile> listProfileSeller = [];
+    for (var d in data) {
+      if (d != null) {
+        listProfileSeller.add(Profile.fromJson(d));
+      }
     }
-    
-      @override
-      @override
+
+    return listProfileSeller;
+  }
+
+  @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -47,48 +47,60 @@ class _ProfilePageSellerState extends State<ProfilePageSeller> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        // title: Text(widget.title),
-      ),
-      drawer: DrawerWidget(),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            // Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.headline4,
-            // ),
-          ],
+        appBar: AppBar(
+          title: const Text('Seller Profile'),
         ),
-      ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: const Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: FutureBuilder(
+            future: fetchProfile(),
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.data == null) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                if (!snapshot.hasData) {
+                  return Column(
+                    children: const [
+                      Text(
+                        "Error",
+                        style:
+                            TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                      ),
+                      SizedBox(height: 8),
+                    ],
+                  );
+                } else {
+                  return ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (_, index) => Container(
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12),
+                            padding: const EdgeInsets.all(20.0),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15.0),
+                                boxShadow: const [
+                                  BoxShadow(
+                                      color: Colors.black, blurRadius: 2.0)
+                                ]),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "${snapshot.data![index].name}",
+                                  style: const TextStyle(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text("${snapshot.data![index].alamat}"),
+                                const SizedBox(height: 10),
+                                Text("${snapshot.data![index].noTelp}"),
+                              ],
+                            ),
+                          ));
+                }
+              }
+            }));
   }
-    
 }
