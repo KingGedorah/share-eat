@@ -87,16 +87,16 @@ class _ProfilePageCustomerState extends State<ProfilePageCustomer> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "${snapshot.data![index]}",
+                                  "${snapshot.data![index].fields.name}",
                                   style: const TextStyle(
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                Text("${snapshot.data![index]}"),
+                                Text("${snapshot.data![index].fields.alamat}"),
                                 const SizedBox(height: 10),
-                                Text("${snapshot.data![index]}"),
+                                Text("${snapshot.data![index].fields.noTelp}"),
                               ],
                             ),
                           ));
