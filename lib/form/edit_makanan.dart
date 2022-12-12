@@ -229,9 +229,6 @@ class _EditMakananPageState extends State<EditMakananFormPage> {
                     final _makanan =
                         new _Makanan(_namaMakanan, _deskripsi, _harga, _stok);
                     updateMakanan(request, _makanan);
-                    // final _budget =
-                    //     new Budget(_judul, _harga, jenisBudget, selectDate);
-                    // MyFormPage.budgetList.add(_budget);
                   }
                 },
               ),

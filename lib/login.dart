@@ -24,23 +24,21 @@ class LoginPageState extends State<LoginPage> {
 
   login(request) async {
     // final request = context.read<CookieRequest>();
-    final response = await request.login(
-        "https://share-eat-d02.up.railway.app/loginpage/login/restaurant/flutter",
-        {
-          'username': username,
-          'password': password1,
-        });
-    // final response = await request
-    //     .login("http://127.0.0.1:8000/loginpage/login/restaurant/flutter", {
-    //   'username': username,
-    //   'password': password1,
-    // });
+    // final response = await request.login(
+    //     "https://share-eat-d02.up.railway.app/loginpage/login/restaurant/flutter",
+    //     {
+    //       'username': username,
+    //       'password': password1,
+    //     });
+    final response = await request
+        .login("http://127.0.0.1:8000/loginpage/login/restaurant/flutter", {
+      'username': username,
+      'password': password1,
+    });
     if (request.loggedIn) {
       Text("Hello");
       print("worked");
-      print(request.cookies);
-      print(request.headers);
-      print(response["user"]);
+      print(response['tipe']);
       print(username1);
       // final test = json.decode(response);
       // print(test);
