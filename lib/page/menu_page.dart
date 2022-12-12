@@ -3,8 +3,9 @@ import 'package:share_eat/model/restaurant_model.dart';
 import 'package:share_eat/form/menupage_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:share_eat/fetch/menupage_fetch.dart';
-
+import 'package:share_eat/page/cart_page.dart';
 import '../restaurant_page.dart';
+
 
 //import 'package:customer_page/models/menu_model.dart';
 // import 'package:customer_page/models/restaurant_model.dart';
@@ -37,7 +38,7 @@ class _MenuPageState extends State<MyMenuPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const MyRestaurantPage()));
+                        builder: (context) => const UserCartPage()));
               },
             )
           ],

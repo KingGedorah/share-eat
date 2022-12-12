@@ -3,9 +3,8 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:share_eat/model/menu_model.dart';
 import 'package:flutter/material.dart';
-
-import '../restaurant_page.dart';
-
+import 'package:share_eat/page/cart_page.dart';
+//import '../restaurant_page.dart';
 //import 'package:share_eat/model/menu_model.dart';
 
 class MenuDetail extends StatefulWidget {
@@ -58,7 +57,7 @@ class _MyFormCart extends State<MenuDetail> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const MyRestaurantPage()));
+                        builder: (context) => const UserCartPage()));
               },
             )
           ],
@@ -73,15 +72,6 @@ class _MyFormCart extends State<MenuDetail> {
                       // mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // Container(
-                        //     height: 300.0,
-                        //     width: MediaQuery.of(context).size.width,
-                        //     decoration: BoxDecoration(
-                        //       image: DecorationImage(
-                        //         image: NetworkImage(
-                        //             'https://share-eat-d02.up.railway.app/static/${widget.detail.fields.image}'),
-                        //       ),
-                        //     )),
                         const SizedBox(height: 15),
                         Text(
                           widget.detail.fields.name,

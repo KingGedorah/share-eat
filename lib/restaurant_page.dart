@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:share_eat/fetch/restaurantpage_fetch.dart';
 import 'package:share_eat/drawer/drawer.dart';
 // import 'package:google_fonts/google_fonts.dart'
+import 'package:share_eat/page/cart_page.dart';
 
 class MyRestaurantPage extends StatefulWidget {
   const MyRestaurantPage({super.key});
@@ -21,16 +22,13 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
           centerTitle: true,
           actions: [
             IconButton(
-              icon: const Icon(
-                color: Colors.white,
-                Icons.shopping_cart
-                ),
-                onPressed: (){
-                  Navigator.push(
+              icon: const Icon(color: Colors.white, Icons.shopping_cart),
+              onPressed: () {
+                Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MyRestaurantPage())
-                  );
-                },
+                    MaterialPageRoute(
+                        builder: (context) => const UserCartPage()));
+              },
             )
           ],
         ),
@@ -46,8 +44,10 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                     children: const [
                       Text(
                         "Restoran tidak tersedia",
-                        style:
-                            TextStyle(color: Color(0xff59A5D8), fontSize: 20, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Color(0xff59A5D8),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 8),
                     ],
@@ -55,33 +55,34 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                 } else {
                   return ListView.builder(
                       itemCount: snapshot.data!.length,
-                      itemBuilder: (_, index) => SingleChildScrollView(child: Container(
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 8),
-                              
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0)),
-                          child: ListTile(
-                            leading: const Icon(Icons.store_mall_directory_rounded),
-                            title: Text(
-                              "${snapshot.data![index].fields.name}",
-                              style: const TextStyle(
-                                fontSize: 18.0,
-                                overflow: TextOverflow.ellipsis,
-                                fontWeight: FontWeight.bold
-                              ),
-                            ),
-                            subtitle: Text(
-                                "Alamat: ${snapshot.data![index].fields.alamat}\nNo.Telp: ${snapshot.data![index].fields.noTelp}"),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyMenuPage(idresto: snapshot.data![index].pk)),
-                              );
-                            },
-                          ))));
+                      itemBuilder: (_, index) => SingleChildScrollView(
+                          child: Container(
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 8),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10.0)),
+                              child: ListTile(
+                                leading: const Icon(
+                                    Icons.store_mall_directory_rounded),
+                                title: Text(
+                                  "${snapshot.data![index].fields.name}",
+                                  style: const TextStyle(
+                                      fontSize: 18.0,
+                                      overflow: TextOverflow.ellipsis,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                subtitle: Text(
+                                    "Alamat: ${snapshot.data![index].fields.alamat}\nNo.Telp: ${snapshot.data![index].fields.noTelp}"),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyMenuPage(
+                                            idresto: snapshot.data![index].pk)),
+                                  );
+                                },
+                              ))));
                 }
               }
             }));
