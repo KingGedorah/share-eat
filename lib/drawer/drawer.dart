@@ -3,6 +3,7 @@ import 'package:share_eat/form/buat_makanan.dart';
 import 'package:share_eat/main.dart';
 import 'package:share_eat/login.dart';
 import 'package:share_eat/page_makanan.dart';
+import 'package:share_eat/page/cart_page.dart';
 
 class DrawerWidget extends StatelessWidget {
   @override
@@ -50,6 +51,16 @@ class DrawerWidget extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const BuatMakananFormPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Keranjangku'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const UserCartPage()),
               );
             },
           ),

@@ -64,19 +64,6 @@ class _DetailPageState extends State<DetailPage> {
             ],
           ),
           SizedBox(height: 10),
-          if (widget.makanan.fields.image != "") ...[
-            Container(
-                // child: new Image.network(
-                //     'http://127.0.0.1:8000/static/${widget.makanan.fields.image}'),
-
-                child: new InkWell(
-              child: new Image.network(
-                'https://share-eat-d02.up.railway.app/static/${widget.makanan.fields.image}',
-                height: 150,
-              ),
-            ))
-          ],
-          SizedBox(height: 10),
           Row(
             children: [
               RichText(

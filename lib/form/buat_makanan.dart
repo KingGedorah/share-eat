@@ -64,6 +64,7 @@ class _BuatMakananPageState extends State<BuatMakananFormPage> {
                       // Menggunakan padding sebesar 8 pixels
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           hintText: "Nama makanan",
 

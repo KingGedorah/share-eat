@@ -30,6 +30,11 @@ class LoginPageState extends State<LoginPage> {
           'username': username,
           'password': password1,
         });
+    // final response = await request
+    //     .login("http://127.0.0.1:8000/loginpage/login/restaurant/flutter", {
+    //   'username': username,
+    //   'password': password1,
+    // });
     if (request.loggedIn) {
       Text("Hello");
       print("worked");
@@ -47,6 +52,7 @@ class LoginPageState extends State<LoginPage> {
       // });
       // Code here will run if the login succeeded.
     } else {
+      print("not worked");
       // Code here will run if the login failed (wrong username/password).
     }
     // print(response.body);
