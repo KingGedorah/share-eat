@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:share_eat/model/profile.dart';
-
 import '../drawer/drawer.dart';
 
-class ProfilePageSeller extends StatefulWidget {
-  const ProfilePageSeller({Key? key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  _ProfilePageSellerState createState() => _ProfilePageSellerState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePageSellerState extends State<ProfilePageSeller> {
+class _ProfilePageState extends State<ProfilePage> {
   Future<List<Profile>> fetchProfile() async {
     var url = Uri.parse(
         'https://share-eat-d02.up.railway.app/loginpage/json_seller/');
@@ -28,14 +27,14 @@ class _ProfilePageSellerState extends State<ProfilePageSeller> {
     var data = jsonDecode(utf8.decode(response.bodyBytes));
 
     // melakukan konversi data json menjadi object ToDo
-    List<Profile> listProfileSeller = [];
+    List<Profile> listProfile = [];
     for (var d in data) {
       if (d != null) {
-        listProfileSeller.add(Profile.fromJson(d));
+        listProfile.add(Profile.fromJson(d));
       }
     }
 
-    return listProfileSeller;
+    return listProfile;
   }
 
   @override
@@ -48,7 +47,7 @@ class _ProfilePageSellerState extends State<ProfilePageSeller> {
     // than having to individually change instances of widgets.
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Seller Profile'),
+          title: const Text('User Profile'),
         ),
         drawer: DrawerWidget(),
         body: FutureBuilder(
@@ -69,6 +68,7 @@ class _ProfilePageSellerState extends State<ProfilePageSeller> {
                     ],
                   );
                 } else {
+                  print(snapshot.data);
                   return ListView.builder(
                       itemCount: snapshot.data!.length,
                       itemBuilder: (_, index) => Container(

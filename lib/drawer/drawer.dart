@@ -6,8 +6,7 @@ import 'package:share_eat/login.dart';
 import 'package:share_eat/register.dart';
 import 'package:share_eat/page_makanan.dart';
 import 'package:share_eat/restaurant_page.dart';
-import '../page/profile_page_customer.dart';
-import '../page/profile_page_seller.dart';
+import '../page/profile_page.dart';
 
 class DrawerWidget extends StatelessWidget {
   @override
@@ -48,24 +47,13 @@ class DrawerWidget extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Profile Page (Seller)'),
+            title: const Text('User Profile Page'),
             onTap: () {
               // Route menu ke halaman form
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ProfilePageSeller()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Profile Page (Customer)'),
-            onTap: () {
-              // Route menu ke halaman form
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ProfilePageCustomer()),
+                    builder: (context) => const ProfilePage()),
               );
             },
           ),
