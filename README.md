@@ -2,6 +2,7 @@
 Sebuah tempat untuk membeli makanan dengan *partner* restoran dengan diskon lebih. Hal ini dilakukan untuk meminimalisir makanan yang terbuang.
 
 [![Staging](https://github.com/KingGedorah/share-eat/actions/workflows/staging.yml/badge.svg)](https://github.com/KingGedorah/share-eat/actions/workflows/staging.yml)
+[![Develop](https://github.com/KingGedorah/share-eat/actions/workflows/develop.yml/badge.svg)](https://github.com/KingGedorah/share-eat/actions/workflows/develop.yml)
 [![Pre-Release](https://github.com/KingGedorah/share-eat/actions/workflows/pre-release.yml/badge.svg)](https://github.com/KingGedorah/share-eat/actions/workflows/pre-release.yml)
 [![Release](https://github.com/KingGedorah/share-eat/actions/workflows/release.yml/badge.svg)](https://github.com/KingGedorah/share-eat/actions/workflows/release.yml)
 [![Build status](https://build.appcenter.ms/v0.1/apps/70f6692f-c886-46ea-9255-9a965598ef09/branches/main/badge)](https://install.appcenter.ms/orgs/d02-pbp-2022-2023/apps/share-eat/distribution_groups/public)
