@@ -40,7 +40,7 @@ class _EditMakananPageState extends State<EditMakananFormPage> {
 
   updateMakanan(request, makanan) async {
     final response = await request.post(
-        'http://127.0.0.1:8000/seller_menu/update/makanan/${widget.makanan.pk}',
+        'https://share-eat-d02.up.railway.app/seller_menu/update/makanan/${widget.makanan.pk}',
         {
           'food_name': makanan.name,
           'description': makanan.description,
@@ -229,9 +229,6 @@ class _EditMakananPageState extends State<EditMakananFormPage> {
                     final _makanan =
                         new _Makanan(_namaMakanan, _deskripsi, _harga, _stok);
                     updateMakanan(request, _makanan);
-                    // final _budget =
-                    //     new Budget(_judul, _harga, jenisBudget, selectDate);
-                    // MyFormPage.budgetList.add(_budget);
                   }
                 },
               ),

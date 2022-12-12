@@ -5,7 +5,6 @@ import 'package:share_eat/model/makanan_model.dart';
 import 'package:share_eat/page_makanan.dart';
 import 'package:share_eat/drawer/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:share_eat/form/edit_makanan.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -22,7 +21,8 @@ class _DetailPageState extends State<DetailPage> {
   deleteMakanan(request, id) async {
     // print(request.headers.cookie);
     final response = await http.delete(
-        Uri.parse('http://127.0.0.1:8000/seller_menu/delete/makanan/${id}'),
+        Uri.parse(
+            'https://share-eat-d02.up.railway.app/seller_menu/delete/makanan/${id}'),
         headers: request.headers);
     return Navigator.pushReplacement(
       context,
@@ -62,19 +62,6 @@ class _DetailPageState extends State<DetailPage> {
               ),
             ],
           ),
-          SizedBox(height: 10),
-          if (widget.makanan.fields.image != "") ...[
-            Container(
-                // child: new Image.network(
-                //     'http://127.0.0.1:8000/static/${widget.makanan.fields.image}'),
-
-                child: new InkWell(
-              child: new Image.network(
-                'http://127.0.0.1:8000/static/${widget.makanan.fields.image}',
-                height: 150,
-              ),
-            ))
-          ],
           SizedBox(height: 10),
           Row(
             children: [

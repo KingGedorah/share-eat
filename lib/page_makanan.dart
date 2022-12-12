@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:share_eat/form/buat_makanan.dart';
 import 'package:share_eat/page/detail_makanan.dart';
-import 'package:path_provider/path_provider.dart';
 
 class MakananPage extends StatefulWidget {
   const MakananPage({Key? key}) : super(key: key);
@@ -50,17 +49,20 @@ class _MakananPageState extends State<MakananPage> {
               if (snapshot.data == null) {
                 return const Center(child: CircularProgressIndicator());
               } else {
-                if (!snapshot.hasData) {
+                if (snapshot.data.length == 0) {
                   return Column(
-                    children: const [
-                      Text(
-                        "Tidak ada makanan yang terdaftar",
-                        style:
-                            TextStyle(color: Color(0xff59A5D8), fontSize: 20),
-                      ),
-                      SizedBox(height: 8),
-                    ],
-                  );
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Tidak ada makanan yang terdaftar",
+                            style: TextStyle(
+                                color: Color(0xff59A5D8), fontSize: 20),
+                          ),
+                        ),
+                      ]);
                 } else {
                   return ListView.builder(
                     itemCount: snapshot.data!.length,
@@ -73,7 +75,7 @@ class _MakananPageState extends State<MakananPage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15.0),
                             boxShadow: [
-                              BoxShadow(color: Colors.red, blurRadius: 2.0)
+                              BoxShadow(color: Colors.black, blurRadius: 2.0)
                             ]),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,

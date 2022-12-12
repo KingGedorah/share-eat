@@ -12,8 +12,8 @@ Future<List<Makanan>> fetchMakanan(request) async {
   //     "Content-Type": "application/json",
   //   },
   // );
-  final response =
-      await request.get('http://127.0.0.1:8000/seller_menu/makanan/json');
+  final response = await request
+      .get('https://share-eat-d02.up.railway.app/seller_menu/makanan/json');
   print(response);
   // melakukan decode response menjadi bentuk json
   // var data = jsonDecode(utf8.decode(response.bodyBytes));

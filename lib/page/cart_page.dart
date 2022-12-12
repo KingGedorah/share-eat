@@ -19,6 +19,15 @@ class UserCartPage extends StatefulWidget {
   State<UserCartPage> createState() => __UserCartPageState();
 }
 
+class UserCartPage extends StatefulWidget {
+  // final CartUser cartUser;
+  const UserCartPage({super.key});
+
+  
+  @override
+  State<UserCartPage> createState() => __UserCartPageState();
+}
+
 class __UserCartPageState extends State<UserCartPage> {
   Future<List<CartUser>> fetchCartUser(request) async {
   var url = await request.get('http://127.0.0.1:8000/fitur_keranjang/json/');
