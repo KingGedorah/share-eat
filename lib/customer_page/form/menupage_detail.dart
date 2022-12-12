@@ -3,7 +3,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:share_eat/customer_page/model/menupage.dart';
-import 'package:share_eat/customer_page/page/dummy.dart';
+import 'package:share_eat/fitur_cart/page/cart_page.dart';
 import 'package:share_eat/widget/drawer_cust.dart';
 //import '../restaurant_page.dart';
 //import 'package:share_eat/model/menu_model.dart';

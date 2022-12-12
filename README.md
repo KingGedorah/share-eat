@@ -36,19 +36,30 @@ Pada tampilan *customer*, *customer* dapat melihat daftar restoran yang tersedia
 <br>
 
 ## 📗 Modul dan Kontrak Kerja 📗
-- *__Landing Page__.* :  Page awal yang berisikan tentang penjelasan secara umum Share-Eat *(Astrid)*
-- *__Login & Register__*: Tampilan login dan register untuk pengguna lama ataupun calon - pengguna  baru. *(Astrid)*
-- *__Customer Page__*: Tampilan daftar __restaurant__ beserta menu yg dijual untuk __Customer__. *(Alizha)*
-- *__Order page for Customer__*: Keranjang untuk merekap pesanan dan menampilkan makanan yang telah dipesan. *(Naufal)*
-- *__Order page for Seller__*: Menampilkan daftar pesanan yang dipesan oleh Customer. *(Achieva)*
-- *__Restaurant Page__.* :  Menambahkan menu dan mengedit stok yang tersedia di partner restoran. *(Jason)*
+- *__Landing Page__.*
+Page awal yang berisikan tentang penjelasan singkat dan navigasi secara umum terkait aplikasi Share-Eat. *(Achieva)*
+- *__Login__*
+Tampilan __login__ untuk pengguna lama ataupun calon - pengguna baru. *(Astrid)*
+- *__Profile page__*
+Fitur ini menampilkan data dari _seller_ dan _customer_ yang sudah melakukan _register_ pada _website_.
+- *__Customer Page__*
+Menampilkan daftar _restaurant_ beserta menu yg dijual untuk _Customer_. _Customer_ dapat mengakses menu yang dimiliki oleh _restaurant_ beserta harga dan deskripsi dari menu tersebut. _Customer_ dapat membeli makanan melalui _input form_ yang disediakan. Fitur ini hanya bisa diakses oleh _customer_ yang sudah melakukan _login_. *(Alizha)*
+- *__Order page for Customer__*
+Pada fitur ini, user yang _login_ sebagai _customer_ dapat melihat rekap menu yang sudah dipesan sebelumnya pada fitur _customer page_. _Customer_ juga dapat menambahkan catatan pesanan. *(Naufal)*
+- *__Order page for Seller__*
+Pada Fitur ini, *seller* dapat melihat tampilan menu beserta jumlah makanan yang dibeli oleh _customer_. _Seller_ juga dapat menambahkan makanan gratis untuk _customer_ dan menampilkan makanan tambahan gratis tersebut bersamaan dengan rekap pesanan yang dipesan oleh _customer_. Fitur ini hanya dapat diakses oleh _Seller_ yang sudah _login_. *(Achieva)*
+- *__Restaurant Page__.*
+Fitur ini hanya bisa diakses oleh _seller_ yang sudah _login_. Pada fitur ini, _seller_ dapat menambahkan menu, mengedit detail makanan, dan menghapus makanan yang sudah ditambahkan sebelumnya. *(Jason)*
+
 
 ## 🔗 Alur Pengintegrasian dengan Situs Web 🔗
-1.    Melengkapi modul - modul yang terdapat pada web untuk pengambilan dan pengiriman data
-2.    Menambahkan middleware agar API dapat diakses dari luar website
-3.    Membuat async function - function untuk pengolahan data
-4.    Pengambilan data dari web yang sudah terintegrasi akan menggunakan HTTP Get dan data yang sudah diambil tadi akan ditampilkan pada aplikasi yang sudah dibuat. Untuk pengiriman data,  akan digunakan HTTP Post yang nantinya akan tersimpan di database web aplikasi Django yang terintegrasi
-5.    Response yang sudah difetch/diambil tadi juga akan dikonversi menjadi Dart object sehingga dapat digunakan sebagai model pada aplikasi Flutter yang akan dirancang
+1. Melengkapi _endpoint_ JSON pada modul-modul yang terdapat pada web untuk pengambilan dan pengiriman data terkait. Modul-modul ini akan didefinsikan sesuai dengan implementasi anggota kelompok.
+2. Menambahkan _package_  pbp_django_auth pada pubspec.yaml untuk autentikasi, _method request_ POST, _method request_ GET, dan lain-lain.
+3. Menambahkan `middleware` pada setting Django agar kita dapat memberikan akses API untuk aplikasi mobile yang berasal dari luar website kita. API ini nantinya akan mengembalikan response dalam bentuk JSON.
+4. Membuat async function terkait pada implementasi aplikasi Flutter untuk pengolahan data aplikasi terkait (menggunakan `FutureBuilder`).
+5. Pengambilan data dari web yang sudah terintegrasi akan menggunakan HTTP `GET` dan data yang sudah diambil tadi akan ditampilkan pada aplikasi yang sudah dibuat. Untuk pengiriman data,  akan digunakan HTTP `POST` yang nantinya akan tersimpan di _database web_ aplikasi Django yang terintegrasi.
+6. Response yang sudah difetch/diambil tadi juga akan dikonversi menjadi Dart object sehingga dapat digunakan sebagai model pada aplikasi Flutter yang akan dirancang.
+
 <br>
 
 ## 🧍 Persona 🧍
