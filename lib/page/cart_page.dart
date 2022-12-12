@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:share_eat/form/buat_catatan.dart';
 import 'package:share_eat/model/cart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -98,26 +100,86 @@ class __UserCartPageState extends State<UserCartPage> {
                     itemCount: snapshot.data!.length,
                     itemBuilder: (_, index) => Card(
                             child: InkWell(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
                               Padding(
                                 padding: const EdgeInsets.all(10),
-                                child: Text(
-                                  "${snapshot.data![index].fields.makanan.name}",
-                                  style: const TextStyle(
-                                    fontSize: 17.0,
-                                  ),
-                                ),
+                                child: Column(
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(bottom: 15, top: 10), 
+                                        child: Text(
+                                          "Menu : ${snapshot.data![index].fields.makanan.name}",
+                                          style: const TextStyle(
+                                            fontSize: 17.0
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(bottom: 15, top: 10), 
+                                        child: Text(
+                                          "Deskripsi : ${snapshot.data![index].fields.makanan.description}",
+                                          style: const TextStyle(
+                                            fontSize: 17.0
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(bottom: 15, top: 10), 
+                                        child: Text(
+                                          "Seller : ${snapshot.data![index].fields.makanan.seller}",
+                                          style: const TextStyle(
+                                            fontSize: 17.0
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(bottom: 15, top: 10), 
+                                        child: Text(
+                                          "Harga : ${snapshot.data![index].fields.makanan.harga}",
+                                          style: const TextStyle(
+                                            fontSize: 17.0
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(bottom: 15, top: 10), 
+                                        child: Text(
+                                          "Quantity : ${snapshot.data![index].fields.add_cart}",
+                                          style: const TextStyle(
+                                            fontSize: 17.0
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]
+                                )
                               )
                             ],
                           ),
-                        )));
+                        )
+                      ),
+                );
               }
             }
           }),
-    );
+      );
   }
 }
 
