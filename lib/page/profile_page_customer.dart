@@ -49,6 +49,7 @@ class _ProfilePageCustomerState extends State<ProfilePageCustomer> {
         appBar: AppBar(
           title: const Text('Customer Profile'),
         ),
+        drawer: DrawerWidget(),
         body: FutureBuilder(
             future: fetchProfile(),
             builder: (context, AsyncSnapshot snapshot) {
@@ -67,6 +68,7 @@ class _ProfilePageCustomerState extends State<ProfilePageCustomer> {
                     ],
                   );
                 } else {
+                  print(snapshot.data);
                   return ListView.builder(
                       itemCount: snapshot.data!.length,
                       itemBuilder: (_, index) => Container(
@@ -85,16 +87,16 @@ class _ProfilePageCustomerState extends State<ProfilePageCustomer> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "${snapshot.data![index].name}",
+                                  "${snapshot.data![index].fields.name}",
                                   style: const TextStyle(
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                Text("${snapshot.data![index].alamat}"),
+                                Text("${snapshot.data![index].fields.alamat}"),
                                 const SizedBox(height: 10),
-                                Text("${snapshot.data![index].noTelp}"),
+                                Text("${snapshot.data![index].fields.noTelp}"),
                               ],
                             ),
                           ));

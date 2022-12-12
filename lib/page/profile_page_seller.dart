@@ -50,6 +50,7 @@ class _ProfilePageSellerState extends State<ProfilePageSeller> {
         appBar: AppBar(
           title: const Text('Seller Profile'),
         ),
+        drawer: DrawerWidget(),
         body: FutureBuilder(
             future: fetchProfile(),
             builder: (context, AsyncSnapshot snapshot) {
