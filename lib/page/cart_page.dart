@@ -47,33 +47,10 @@ class __UserCartPageState extends State<UserCartPage> {
   return listCart;
   }
   
-  Future<List<CatatanUser>> fetchCatatanUser(request) async {
-  var url = await request.get('https://share-eat-d02.up.railway.app/fitur_keranjang/json_catatan/');
-  // var response = await request.get(
-  //   url,
-  //   headers: {
-  //     "Access-Control-Allow-Origin": "*",
-  //     "Content-Type": "application/json",
-  //   },
-  // );
-
-  // var data = jsonDecode(utf8.decode(url.bodyBytes));
-
-  List<CatatanUser> listCatatan = [];
-  for(var d in url) {
-    if (d != null) {
-      listCatatan.add(CatatanUser.fromJson(d));
-    }
-  }
-
-  print(listCatatan);
-  return listCatatan;
-}
 
   @override
   Widget build(BuildContext context) {
-    final request = context.watch<CookieRequest>();
-    Future<List<CatatanUser>> futureCatatan = fetchCatatanUser(request);
+    final request = context.watch<CookieRequest>();  
     return Scaffold(
       appBar: AppBar(
         title: const Text("Keranjangku"),

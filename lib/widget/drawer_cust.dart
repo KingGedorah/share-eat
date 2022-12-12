@@ -9,6 +9,7 @@ import 'package:share_eat/seller_menu/form/buat_makanan.dart';
 import 'package:share_eat/page/cart_page.dart';
 import 'package:share_eat/form/buat_catatan.dart';
 import '../seller_menu/page/page_makanan.dart';
+import 'package:share_eat/page/catatan_page.dart';
 
 class DrawerCust extends StatelessWidget {
   final String route;
@@ -102,6 +103,15 @@ class DrawerCust extends StatelessWidget {
                 context, 
                 MaterialPageRoute(
                   builder: (context) => const BuatCatatanFormPage()));
+            },
+          ),
+          ListTile(
+            title: const Text('Lihat Catatan'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => const UserCatatanPage()));
             },
           ),
         ],
