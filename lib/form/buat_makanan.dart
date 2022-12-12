@@ -28,13 +28,14 @@ class _BuatMakananPageState extends State<BuatMakananFormPage> {
   int _stok = 0;
 
   buatMakanan(request, makanan) async {
-    final response = await request
-        .post('http://127.0.0.1:8000/seller_menu/add/makanan/flutter', {
-      'name': makanan.name,
-      'description': makanan.description,
-      'harga': makanan.harga.toString(),
-      'stok': makanan.stok.toString(),
-    });
+    final response = await request.post(
+        'https://share-eat-d02.up.railway.app/seller_menu/add/makanan/flutter',
+        {
+          'name': makanan.name,
+          'description': makanan.description,
+          'harga': makanan.harga.toString(),
+          'stok': makanan.stok.toString(),
+        });
     return Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const MakananPage()),
