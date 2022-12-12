@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:share_eat/daftar_pesanan_seller/model/pesanan.dart';
-import 'package:share_eat/daftar_pesanan_seller/widget/drawer_app.dart';
+import 'package:share_eat/widget/drawer_app.dart';
 
 import 'add_gratisan_page.dart';
 import 'lihat_pesanan_page.dart';

@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/lihat_pesanan_page.dart';
-import 'package:share_eat/daftar_pesanan_seller/widget/drawer_app.dart';
+import 'package:share_eat/widget/drawer_app.dart';
 
 import 'add_gratisan_page.dart';
 
