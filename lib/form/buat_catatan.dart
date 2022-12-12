@@ -3,11 +3,12 @@ import 'package:share_eat/main.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:share_eat/page/cart_page.dart';
-import 'package:share_eat/drawer/drawer.dart';
+import 'package:share_eat/widget/drawer_cust.dart';
 import 'package:share_eat/main.dart';
 
 class BuatCatatanFormPage extends StatefulWidget {
   const BuatCatatanFormPage({super.key});
+  static const ROUTE_NAME = 'route';
 
   @override
   State<BuatCatatanFormPage> createState() => _BuatCatatanFormPageState();
@@ -40,7 +41,7 @@ class _BuatCatatanFormPageState extends State<BuatCatatanFormPage> {
       appBar: AppBar(
         title: Text('Tambah Catatan'),
       ),
-      drawer: DrawerWidget(),
+      drawer: DrawerCust(BuatCatatanFormPage.ROUTE_NAME),
       body: Form(
         key: _formKey,
         child: Column(

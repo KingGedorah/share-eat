@@ -7,30 +7,20 @@ import 'dart:convert';
 import '../model/catatan_model.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
-import 'package:share_eat/drawer/drawer.dart';
+import 'package:share_eat/widget/drawer_cust.dart';
 
 
 class UserCartPage extends StatefulWidget {
   // final CartUser cartUser;
   const UserCartPage({super.key});
-
+  static const ROUTE_NAME = 'route';
   
   @override
   State<UserCartPage> createState() => __UserCartPageState();
 }
-
-class UserCartPage extends StatefulWidget {
-  // final CartUser cartUser;
-  const UserCartPage({super.key});
-
-  
-  @override
-  State<UserCartPage> createState() => __UserCartPageState();
-}
-
 class __UserCartPageState extends State<UserCartPage> {
   Future<List<CartUser>> fetchCartUser(request) async {
-  var url = await request.get('http://127.0.0.1:8000/fitur_keranjang/json/');
+  var url = await request.get('https://share-eat-d02.up.railway.app/fitur_keranjang/json/');
   // var response = await request.get(
   //   url,
   //   headers: {
@@ -58,7 +48,7 @@ class __UserCartPageState extends State<UserCartPage> {
   }
   
   Future<List<CatatanUser>> fetchCatatanUser(request) async {
-  var url = await request.get('http://127.0.0.1:8000/fitur_keranjang/json_catatan/');
+  var url = await request.get('https://share-eat-d02.up.railway.app/fitur_keranjang/json_catatan/');
   // var response = await request.get(
   //   url,
   //   headers: {
@@ -83,23 +73,25 @@ class __UserCartPageState extends State<UserCartPage> {
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
+    Future<List<CatatanUser>> futureCatatan = fetchCatatanUser(request);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Keranjangku"),
       ),
-      drawer: DrawerWidget (),
+      drawer: DrawerCust(UserCartPage.ROUTE_NAME),
       body: FutureBuilder(
           future: fetchCartUser(request),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
               return const Center(child: CircularProgressIndicator());
             } else {
-              if (!snapshot.hasData) {
+              if (snapshot.data.length == 0) {
                 return Column(
                   children: const [
                     Text(
                       "Tidak ada item di keranjangmu! :(",
-                      style: TextStyle(color: Colors.blue, fontSize: 18),
+                      style: TextStyle(color: Colors.blue, fontSize: 18,),
+                      textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 8),
                   ],

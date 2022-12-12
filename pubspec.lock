@@ -136,7 +136,7 @@ packages:
     source: sdk
     version: "0.0.0"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -240,8 +240,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
-<<<<<<< HEAD
-=======
   petitparser:
     dependency: transitive
     description:
@@ -249,7 +247,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.1.0"
->>>>>>> 614023c71623e7ff561ff9cec38a695e4ad6293d
   platform:
     dependency: transitive
     description:

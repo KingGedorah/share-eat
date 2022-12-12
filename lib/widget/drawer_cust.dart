@@ -6,7 +6,8 @@ import 'package:share_eat/daftar_pesanan_seller/page/daftar_pesanan_page.dart';
 import 'package:share_eat/page/home_page.dart';
 import 'package:share_eat/page/homepage_customer.dart';
 import 'package:share_eat/seller_menu/form/buat_makanan.dart';
-
+import 'package:share_eat/page/cart_page.dart';
+import 'package:share_eat/form/buat_catatan.dart';
 import '../seller_menu/page/page_makanan.dart';
 
 class DrawerCust extends StatelessWidget {
@@ -88,10 +89,19 @@ class DrawerCust extends StatelessWidget {
           ListTile(
             title: const Text('Keranjang'),
             onTap: () {
-              route == DaftarPesananPage.ROUTE_NAME
-                  ? Navigator.pop(context)
-                  : Navigator.pushReplacementNamed(
-                      context, DaftarPesananPage.ROUTE_NAME);
+              Navigator.pushReplacement(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => const UserCartPage()));
+            },
+          ),
+          ListTile(
+            title: const Text('Tambah Catatan'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => const BuatCatatanFormPage()));
             },
           ),
         ],
