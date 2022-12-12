@@ -16,7 +16,7 @@ Sebuah tempat untuk membeli makanan dengan *partner* restoran dengan diskon lebi
 > pada Semester Gasal, Tahun Ajaran 2021/2022.
 
 ## 📱 Aplikasi 📱
-Saat ini, hanya tersedia versi Android (APK) untuk diunduh. File APK dapat diunduh di bagian [_releases_]().
+Saat ini, hanya tersedia versi Android (APK) untuk diunduh. File APK dapat diunduh di bagian [_releases_](https://github.com/KingGedorah/share-eat/releases/tag/1.0.0%2B1) dan [_Microsoft App Center_](https://install.appcenter.ms/orgs/d02-pbp-2022-2023/apps/share-eat/distribution_groups/public).
 
 ## 🧑 Nama Anggota 🧑
 - Naufal Zhafari Zahran (2106752104)
