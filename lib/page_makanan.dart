@@ -59,8 +59,7 @@ class _MakananPageState extends State<MakananPage> {
                           child: Text(
                             "Tidak ada makanan yang terdaftar",
                             style: TextStyle(
-                                color: Color.fromARGB(255, 89, 216, 117),
-                                fontSize: 20),
+                                color: Color(0xff59A5D8), fontSize: 20),
                           ),
                         ),
                       ]);
