@@ -1,104 +1,85 @@
-// import 'package:flutter/material.dart';
-// // import 'package:customer_page/pages/drawer.dart';
-// import 'package:customer_page/fetch/menupage_fetch.dart';
-// //import 'package:customer_page/fetch/restaurantpage_fetch.dart';
+import 'package:share_eat/model/menu_model.dart';
+import 'package:share_eat/model/restaurant_model.dart';
+import 'package:share_eat/form/menupage_detail.dart';
+import 'package:flutter/material.dart';
+import 'package:share_eat/fetch/menupage_fetch.dart';
 
-// class MyMenuPage extends StatefulWidget {
-//   const MyMenuPage({super.key});
+import '../restaurant_page.dart';
 
-//   @override
-//   State<MyMenuPage> createState() => _MenuPageState();
-// }
+//import 'package:customer_page/models/menu_model.dart';
+// import 'package:customer_page/models/restaurant_model.dart';
 
-// class _MenuPageState extends State<MyMenuPage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: const Text('Menu'),
-//         ),
-//         // drawer: const MyDrawer(),
-//         body: FutureBuilder(
-//             future: fetchMenuPage(),
-//             builder: (context, AsyncSnapshot snapshot) {
-//               if (snapshot.data == null) {
-//                 return const Center(child: CircularProgressIndicator());
-//               } else {
-//                 if (!snapshot.hasData) {
-//                   return Column(
-//                     children: const [
-//                       Text(
-//                         "Menu tidak tersedia",
-//                         style:
-//                             TextStyle(color: Color(0xff59A5D8), fontSize: 20),
-//                       ),
-//                       SizedBox(height: 8),
-//                     ],
-//                   );
-//                 } else {
-//                   return ListView.builder(
-//                     itemCount: snapshot.data!.length,
-//                     itemBuilder: (_, index) => Container(
-//                       margin: const EdgeInsets.symmetric(
-//                           horizontal: 16, vertical: 8),
-//                       child: Row(children: [
-//                         Container(
-//                             decoration: BoxDecoration(
-//                                 borderRadius: BorderRadius.circular(5.0),
-//                                 color: Colors.white,
-//                                 image: DecorationImage(
-//                                     fit: BoxFit.cover,
-//                                     image: AssetImage(
-//                                         'assets/${snapshot.data[index].image}')))),
-//                         Container(
-//                           height: 100,
-//                           width: 200,
-//                           decoration: const BoxDecoration(
-//                             borderRadius: BorderRadius.only(
-//                                 topRight: Radius.circular(5.0),
-//                                 bottomRight: Radius.circular(5.0)),
-//                             color: Colors.white,
-//                           ),
-//                           child: Padding(
-//                               padding: const EdgeInsets.only(
-//                                   left: 5.0, right: 5.0, top: 1.0, bottom: 1.0),
-//                               child: Column(
-//                                 children: [
-//                                   BigText(text: '${snapshot.data[index].name}')
-//                                 ],
-//                               )),
-//                         )
-//                       ]),
-//                     ),
-//                   );
-//                 }
-//               }
-//             }));
-//   }
-// }
+class MyMenuPage extends StatefulWidget {
+  final int idresto;
+  const MyMenuPage({super.key, required this.idresto});
 
-// // ignore: must_be_immutable
-// class BigText extends StatelessWidget {
-//   Color color;
-//   final String text;
-//   double size;
-//   TextOverflow overFlow;
-//   BigText(
-//       {Key? key,
-//       this.color = const Color(0xFF332d2b),
-//       required this.text,
-//       this.size = 0,
-//       this.overFlow = TextOverflow.ellipsis})
-//       : super(key:key);
+  @override
+  State<MyMenuPage> createState() => _MenuPageState();
+}
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Text(text,
-//         maxLines: 1,
-//         overflow: overFlow,
-//         style: const TextStyle(
-//           fontFamily: 'Roboto',
-//           fontSize: 12,
-//         ));
-//   }
-// }
+class _MenuPageState extends State<MyMenuPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Menu'),
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          actions: [
+            IconButton(
+              icon: const Icon(color: Colors.white, Icons.shopping_cart),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyRestaurantPage()));
+              },
+            )
+          ],
+        ),
+        body: FutureBuilder(
+            future: fetchMenuPage(widget.idresto),
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.data == null) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                if (!snapshot.hasData) {
+                  return Column(
+                    children: const [
+                      Text(
+                        "Menu tidak tersedia",
+                        style:
+                            TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                      ),
+                      SizedBox(height: 8),
+                    ],
+                  );
+                } else {
+                  //return Text('${snapshot.data?[0].fields.name}');
+                  return ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (_, index) => SingleChildScrollView(child:Card(
+                              child: ListTile(
+                            title: Text('${snapshot.data![index].fields.name}'),
+                            subtitle: Text('Rp ${snapshot.data![index].fields.harga}'),
+                            leading: const Icon(Icons.restaurant),
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(
+                                builder: ((context) => MenuDetail(detail: snapshot.data![index])
+                              )));
+                            },
+                          ))));
+                }
+              }
+            }));
+  }
+}
+
+  
+               
+

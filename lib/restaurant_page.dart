@@ -1,4 +1,4 @@
-import 'package:share_eat/page/tst.dart';
+import 'package:share_eat/page/menu_page.dart';
 import 'package:flutter/material.dart';
 // import 'package:customer_page/pages/drawer.dart';
 import 'package:share_eat/fetch/restaurantpage_fetch.dart';
@@ -34,7 +34,7 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
             )
           ],
         ),
-        drawer: const MyDrawer(),
+        drawer: DrawerWidget(),
         body: FutureBuilder(
             future: fetchRestaurantPage(),
             builder: (context, AsyncSnapshot snapshot) {
@@ -55,7 +55,7 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                 } else {
                   return ListView.builder(
                       itemCount: snapshot.data!.length,
-                      itemBuilder: (_, index) => Container(
+                      itemBuilder: (_, index) => SingleChildScrollView(child: Container(
                           margin: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
                               
@@ -63,7 +63,7 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10.0)),
                           child: ListTile(
-                            leading: const Icon(Icons.restaurant_outlined),
+                            leading: const Icon(Icons.store_mall_directory_rounded),
                             title: Text(
                               "${snapshot.data![index].fields.name}",
                               style: const TextStyle(
@@ -81,7 +81,7 @@ class _RestaurantPageState extends State<MyRestaurantPage> {
                                     builder: (context) => MyMenuPage(idresto: snapshot.data![index].pk)),
                               );
                             },
-                          )));
+                          ))));
                 }
               }
             }));

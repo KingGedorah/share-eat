@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:share_eat/drawer/drawer.dart';
-//import 'package:share_eat/fetch/menupage_fetch.dart';
+import 'package:share_eat/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +13,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-          
-          primarySwatch: Colors.brown),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
+      child: MaterialApp(
+        title: 'Flutter App',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(title: 'Flutter App'),
+        routes: {
+          "/login": (BuildContext context) => const LoginPage(),
+        },
+      ),
     );
   }
 }
@@ -48,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         
         title: Text(widget.title),
       ),
-      drawer: const MyDrawer(),
+      drawer: DrawerWidget(),
       body: Center(
         
         child: Column(
