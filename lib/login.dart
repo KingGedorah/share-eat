@@ -24,11 +24,12 @@ class LoginPageState extends State<LoginPage> {
 
   login(request) async {
     // final request = context.read<CookieRequest>();
-    final response = await request
-        .login("http://127.0.0.1:8000/loginpage/login/restaurant/flutter", {
-      'username': username,
-      'password': password1,
-    });
+    final response = await request.login(
+        "https://share-eat-d02.up.railway.app/loginpage/login/restaurant/flutter",
+        {
+          'username': username,
+          'password': password1,
+        });
     if (request.loggedIn) {
       Text("Hello");
       print("worked");
@@ -59,7 +60,7 @@ class LoginPageState extends State<LoginPage> {
     final request = context.watch<CookieRequest>();
     return Scaffold(
         appBar: AppBar(
-          title: Text('Login Page'),
+          title: Text('Form Budget'),
         ),
         drawer: DrawerWidget(),
         body: Form(
@@ -71,7 +72,7 @@ class LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Username",
+                      hintText: "Judul",
 
                       // Menambahkan circular border agar lebih rapi
                       border: OutlineInputBorder(
@@ -93,7 +94,7 @@ class LoginPageState extends State<LoginPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Username tidak boleh kosong!';
+                        return 'Judul tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -104,7 +105,7 @@ class LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Password",
+                      hintText: "Nominal",
 
                       // Menambahkan circular border agar lebih rapi
                       border: OutlineInputBorder(
@@ -126,7 +127,7 @@ class LoginPageState extends State<LoginPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Password tidak boleh kosong!';
+                        return 'Judul1 tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -136,7 +137,7 @@ class LoginPageState extends State<LoginPage> {
                   alignment: Alignment.bottomCenter,
                   child: TextButton(
                     child: const Text(
-                      "Log in",
+                      "Simpan",
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ButtonStyle(
