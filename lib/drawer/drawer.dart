@@ -12,17 +12,17 @@ class DrawerWidget extends StatelessWidget {
       child: Column(
         children: [
           // Menambahkan clickable menu
-          ListTile(
-            title: const Text('counter_7'),
-            onTap: () {
-              // Route menu ke halaman utama
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const MyHomePage(title: "Tes")),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('counter_7'),
+          //   onTap: () {
+          //     // Route menu ke halaman utama
+          //     Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(
+          //           builder: (context) => const MyHomePage()),
+          //     );
+          //   },
+          // ),
           ListTile(
             title: const Text('Auth'),
             onTap: () {

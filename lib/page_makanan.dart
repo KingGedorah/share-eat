@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:share_eat/form/buat_makanan.dart';
 import 'package:share_eat/page/detail_makanan.dart';
-import 'package:path_provider/path_provider.dart';
 
 class MakananPage extends StatefulWidget {
   const MakananPage({Key? key}) : super(key: key);
