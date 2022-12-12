@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:share_eat/daftar_pesanan_seller/login.dart';
+// import 'package:share_eat/daftar_pesanan_seller/login.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/daftar_pesanan_page.dart';
+import 'package:share_eat/loginpage/page/loginpage.dart';
+import 'package:share_eat/loginpage/page/profile_page_resto.dart';
 import 'package:share_eat/page/home_page.dart';
 import 'package:share_eat/page/homepage_resto.dart';
 import 'package:share_eat/seller_menu/form/buat_makanan.dart';
@@ -75,6 +77,13 @@ class DrawerApp extends StatelessWidget {
             title: const Text('Homepage'),
             onTap: () {
               Navigator.pushReplacementNamed(context, HomePageResto.ROUTE_NAME);
+            },
+          ),
+          ListTile(
+            title: const Text('Profile Page'),
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const ProfilePage()));
             },
           ),
           ListTile(

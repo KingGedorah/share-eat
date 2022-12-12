@@ -1,18 +1,19 @@
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:share_eat/drawer/drawer.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:share_eat/widget/drawer_main.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
+  static const ROUTE_NAME = "register/";
   @override
-  State<LoginPage> createState() => LoginPageState();
+  State<RegisterPage> createState() => RegisterPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
+class RegisterPageState extends State<RegisterPage> {
   final _loginFormKey = GlobalKey<FormState>();
   String username1 = "";
   bool isPasswordVisible = false;
@@ -24,21 +25,18 @@ class LoginPageState extends State<LoginPage> {
 
   login(request) async {
     // final request = context.read<CookieRequest>();
-    // final response = await request.login(
-    //     "https://share-eat-d02.up.railway.app/loginpage/login/restaurant/flutter",
-    //     {
-    //       'username': username,
-    //       'password': password1,
-    //     });
-    final response = await request
-        .login("http://127.0.0.1:8000/loginpage/login/restaurant/flutter", {
-      'username': username,
-      'password': password1,
-    });
+    final response = await request.login(
+        "https://share-eat-d02.up.railway.app/loginpage/login/restaurant/flutter",
+        {
+          'username': username,
+          'password': password1,
+        });
     if (request.loggedIn) {
       Text("Hello");
       print("worked");
-      print(response['tipe']);
+      print(request.cookies);
+      print(request.headers);
+      print(response["user"]);
       print(username1);
       // final test = json.decode(response);
       // print(test);
@@ -50,7 +48,6 @@ class LoginPageState extends State<LoginPage> {
       // });
       // Code here will run if the login succeeded.
     } else {
-      print("not worked");
       // Code here will run if the login failed (wrong username/password).
     }
     // print(response.body);
@@ -64,9 +61,9 @@ class LoginPageState extends State<LoginPage> {
     final request = context.watch<CookieRequest>();
     return Scaffold(
         appBar: AppBar(
-          title: Text('Form Budget'),
+          title: Text('Register Page'),
         ),
-        drawer: DrawerWidget(),
+        drawer: DrawerMain(RegisterPage.ROUTE_NAME),
         body: Form(
             key: _loginFormKey,
             child: Column(
@@ -76,7 +73,7 @@ class LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Judul",
+                      hintText: "Username",
 
                       // Menambahkan circular border agar lebih rapi
                       border: OutlineInputBorder(
@@ -98,7 +95,7 @@ class LoginPageState extends State<LoginPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Judul tidak boleh kosong!';
+                        return 'Username tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -109,7 +106,106 @@ class LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Nominal",
+                      hintText: "Nama",
+
+                      // Menambahkan circular border agar lebih rapi
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    // Menambahkan behavior saat nama diketik
+                    onChanged: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Menambahkan behavior saat data disimpan
+                    onSaved: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Validator sebagai validasi form
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Nama tidak boleh kosong!';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  // Menggunakan padding sebesar 8 pixels
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Alamat",
+
+                      // Menambahkan circular border agar lebih rapi
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    // Menambahkan behavior saat nama diketik
+                    onChanged: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Menambahkan behavior saat data disimpan
+                    onSaved: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Validator sebagai validasi form
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Alamat tidak boleh kosong!';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  // Menggunakan padding sebesar 8 pixels
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Nomor telepon",
+
+                      // Menambahkan circular border agar lebih rapi
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    // Menambahkan behavior saat nama diketik
+                    onChanged: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Menambahkan behavior saat data disimpan
+                    onSaved: (String? value) {
+                      setState(() {
+                        username = value!;
+                      });
+                    },
+                    // Validator sebagai validasi form
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Nomor telepon tidak boleh kosong!';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  // Menggunakan padding sebesar 8 pixels
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Password",
 
                       // Menambahkan circular border agar lebih rapi
                       border: OutlineInputBorder(
@@ -131,7 +227,7 @@ class LoginPageState extends State<LoginPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Judul1 tidak boleh kosong!';
+                        return 'Password tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -141,7 +237,7 @@ class LoginPageState extends State<LoginPage> {
                   alignment: Alignment.bottomCenter,
                   child: TextButton(
                     child: const Text(
-                      "Simpan",
+                      "Register",
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ButtonStyle(

@@ -5,8 +5,6 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-import 'package:share_eat/model/makanan_model.dart';
-
 List<CartUser> cartPageFromJson(String str) =>
     List<CartUser>.from(json.decode(str).map((x) => CartUser.fromJson(x)));
 

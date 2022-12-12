@@ -59,6 +59,7 @@ class _EditMakananPageState extends State<EditMakananFormPage> {
     final request = context.watch<CookieRequest>();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Edit Makanan'),
       ),

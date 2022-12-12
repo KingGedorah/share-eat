@@ -1,18 +1,17 @@
 // To parse this JSON data, do
 //
-//     final makanan = makananFromJson(jsonString);
+//     final menuPage = menuPageFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<Makanan> makananFromJson(String str) =>
-    List<Makanan>.from(json.decode(str).map((x) => Makanan.fromJson(x)));
+List<MenuPage> menuPageFromJson(String str) =>
+    List<MenuPage>.from(json.decode(str).map((x) => MenuPage.fromJson(x)));
 
-String makananToJson(List<Makanan> data) =>
+String menuPageToJson(List<MenuPage> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Makanan {
-  Makanan({
+class MenuPage {
+  MenuPage({
     required this.model,
     required this.pk,
     required this.fields,
@@ -22,7 +21,7 @@ class Makanan {
   int pk;
   Fields fields;
 
-  factory Makanan.fromJson(Map<String, dynamic> json) => Makanan(
+  factory MenuPage.fromJson(Map<String, dynamic> json) => MenuPage(
         model: json["model"],
         pk: json["pk"],
         fields: Fields.fromJson(json["fields"]),
