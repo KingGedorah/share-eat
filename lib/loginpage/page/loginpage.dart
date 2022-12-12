@@ -92,7 +92,7 @@ class LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Judul",
+                      hintText: "Username",
 
                       // Menambahkan circular border agar lebih rapi
                       border: OutlineInputBorder(
@@ -114,7 +114,7 @@ class LoginPageState extends State<LoginPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Judul tidak boleh kosong!';
+                        return 'Username tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -124,8 +124,9 @@ class LoginPageState extends State<LoginPage> {
                   // Menggunakan padding sebesar 8 pixels
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    obscureText: true,
                     decoration: InputDecoration(
-                      hintText: "Nominal",
+                      hintText: "Password",
 
                       // Menambahkan circular border agar lebih rapi
                       border: OutlineInputBorder(
@@ -147,7 +148,7 @@ class LoginPageState extends State<LoginPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Judul1 tidak boleh kosong!';
+                        return 'Password tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -157,11 +158,12 @@ class LoginPageState extends State<LoginPage> {
                   alignment: Alignment.bottomCenter,
                   child: TextButton(
                     child: const Text(
-                      "Simpan",
+                      "Login",
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.blue),
+                      backgroundColor: MaterialStateProperty.all(
+                          Color.fromARGB(255, 72, 90, 53)),
                     ),
                     onPressed: () {
                       if (_loginFormKey.currentState!.validate()) {

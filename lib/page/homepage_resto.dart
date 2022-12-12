@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:share_eat/daftar_pesanan_seller/login.dart';
+// import 'package:share_eat/daftar_pesanan_seller/login.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/add_gratisan_page.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/daftar_pesanan_page.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/lihat_pesanan_page.dart';

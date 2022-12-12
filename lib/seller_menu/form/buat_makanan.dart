@@ -48,6 +48,7 @@ class _BuatMakananPageState extends State<BuatMakananFormPage> {
     final request = context.watch<CookieRequest>();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Tambah Makanan'),
       ),

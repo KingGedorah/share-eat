@@ -1,19 +1,16 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:share_eat/model/makanan_model.dart';
 import 'package:flutter/material.dart';
-import 'package:share_eat/drawer/drawer.dart';
 import 'package:share_eat/main.dart';
-import 'package:share_eat/fetch/get_makanan.dart';
-import 'package:share_eat/login.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
-import 'package:share_eat/form/buat_makanan.dart';
-import 'package:share_eat/page/detail_makanan.dart';
+import 'package:share_eat/seller_menu/fetch/fetch_makanan.dart';
+import 'package:share_eat/seller_menu/page/detail_makanan.dart';
+import 'package:share_eat/widget/drawer_app.dart';
 
 class MakananPage extends StatefulWidget {
   const MakananPage({Key? key}) : super(key: key);
-
+  static const ROUTE_NAME = "/makanan-page";
   @override
   _MakananPageState createState() => _MakananPageState();
 }
@@ -42,7 +39,7 @@ class _MakananPageState extends State<MakananPage> {
           // the App.build method, and use it to set our appbar title.
           title: const Text("Daftar Makanan"),
         ),
-        drawer: DrawerWidget(),
+        drawer: DrawerApp(MakananPage.ROUTE_NAME),
         body: FutureBuilder(
             future: _isInit ? changeIsInit(request) : null,
             builder: (context, AsyncSnapshot snapshot) {
