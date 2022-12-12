@@ -19,7 +19,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   Future<List<Profile>> fetchProfile() async {
     var url = Uri.parse(
-        'https://share-eat-d02.up.railway.app/loginpage/json_seller/');
+        'https://share-eat-d02.up.railway.app/loginpage/json_customer/');
     var response = await http.get(
       url,
       headers: {

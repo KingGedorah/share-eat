@@ -51,13 +51,21 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 30),
               Text(
-                'Apa yang ingin kamu lakukan?',
+                'Reduced Food Waste and Safe Our Earth 🌏',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 10),
+              Text(
+                'Earth is our one and only home and safe place. \nJoin us for more splendid journey!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+              SizedBox(height: 15),
               Container(
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: Row(
@@ -83,26 +91,6 @@ class HomePage extends StatelessWidget {
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           alignment: Alignment.center,
                           fixedSize: Size(90, 40)),
-                    ),
-                    TextButton(
-                      onPressed: () => {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => const HomePage()),
-                        )
-                      },
-                      child: const Text(
-                        "Register",
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 72, 90, 53)),
-                      ),
-                      style: TextButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 184, 204, 162),
-                        padding: const EdgeInsets.all(8.0),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        alignment: Alignment.center,
-                        fixedSize: Size(90, 40),
-                      ),
                     ),
                   ],
                 ),

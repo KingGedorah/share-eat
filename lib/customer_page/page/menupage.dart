@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_eat/customer_page/form/menupage_detail.dart';
-import 'package:share_eat/customer_page/page/dummy.dart';
+import 'package:share_eat/fitur_cart/page/cart_page.dart';
 
 import '../fetch/menu_fetch.dart';
 

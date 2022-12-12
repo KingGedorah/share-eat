@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:share_eat/customer_page/page/restopage.dart';
 // import 'package:share_eat/daftar_pesanan_seller/login.dart';
 import 'package:share_eat/daftar_pesanan_seller/page/daftar_pesanan_page.dart';
+import 'package:share_eat/fitur_cart/form/buat_catatan.dart';
+import 'package:share_eat/fitur_cart/page/cart_page.dart';
+import 'package:share_eat/fitur_cart/page/catatan_page.dart';
 import 'package:share_eat/loginpage/page/loginpage.dart';
 import 'package:share_eat/loginpage/page/profile_page_cust.dart';
 import 'package:share_eat/page/home_page.dart';
@@ -91,16 +95,33 @@ class DrawerCust extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const BuatMakananFormPage()),
+                      builder: (context) => const MyRestaurantPage()),
                 );
               }),
           ListTile(
             title: const Text('Keranjang'),
             onTap: () {
-              route == DaftarPesananPage.ROUTE_NAME
-                  ? Navigator.pop(context)
-                  : Navigator.pushReplacementNamed(
-                      context, DaftarPesananPage.ROUTE_NAME);
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const UserCartPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Lihat Catatan'),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => const UserCatatanPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Tambah Catatan'),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => const BuatCatatanFormPage()),
+              );
             },
           ),
         ],

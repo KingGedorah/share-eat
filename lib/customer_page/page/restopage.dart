@@ -4,8 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:share_eat/customer_page/fetch/resto_fetch.dart';
 import 'package:share_eat/customer_page/model/restopage.dart';
-import 'package:share_eat/customer_page/page/dummy.dart';
 import 'package:share_eat/customer_page/page/menupage.dart';
+import 'package:share_eat/fitur_cart/page/cart_page.dart';
 import 'package:share_eat/widget/drawer_cust.dart';
 
 class MyRestaurantPage extends StatefulWidget {
