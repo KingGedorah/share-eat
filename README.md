@@ -72,3 +72,88 @@ Fitur ini hanya bisa diakses oleh _seller_ yang sudah _login_. Pada fitur ini, _
 - 🍽️ *Restaurant* 🍽️
       <br>
       *User* yang __login__ sebagai __Seller__ bisa menambahkan makanan yang akan dijual beserta detailnya. *User* ini juga bisa memodifikasi detail dari makanan yang telah didaftarkan pada daftar makanan. *Seller* juga dapat melihat daftar pesanan yang dipesan oleh *customer*.
+
+<br>
+
+
+##  Pertanyaan Demo TK PAS
+
+Pertanyaan: Sebutkan jenis _event handling_ yang digunakan dan jelaskan apa kegunaannya.
+
+- **Login Page** : 
+  - Class TextFormField:
+    - OnChanged : untuk menyimpan data ketika _user_ menuliskan data di _text field_
+    - OnSaved : untuk menyimpan data ketika _user_ selesai menuliskan data di _text field_
+    - OnPressed : _event handling_ ketika _user_ menekan _button_ login untuk melakukan _login_ dan data-data yang telah diisi sebelumnya dilakukan penyimpanan dan diproses
+    
+- **Customer Page** :
+	- Class TextFormField:
+		- OnChanged: Mengassign input jumlah makanan yang ingin dibeli oleh customer ketika _customer_ mengganti input  jumlah makanan yang ingin dibeli.
+		- OnSaved: Mengassign input jumlah makanan ketika _customer_ selesai menginput data pada formfield.
+	- Class TextButton:
+		- OnPressed: 
+          - Navigasi ke dialog pop up ketika _customer_ selesai menginput pesanan.
+          - Menghapus tampilan jumlah input pada FormField ketika _customer_ menutup dialog pop up yang muncul setelah menambahkan pesanan. (memanfaatkan TextEditingController()).
+	- Class IconButton:
+        - onPressed:
+          - Navigasi ke halaman rekap pesanan saat _user_ klik tombol ikon yang tersedia pada AppBar.
+          - Navigasi ke halaman sebelumnya.
+    - Class Container:
+      - OnTap:
+          - Navigasi ke halaman menu, sesuai dengan restoran mana yang ditap oleh _customer_
+          - Navigasi ke halaman detail dari menu, sesuai dengan menu yang dipilih oleh _customer_
+
+- **Order page for Customer (Fitur Cart)** :
+	- Class TextFormField
+		- onChanged :
+			- Mengassign data text catatan yang ditambahkan oleh customer saat ingin menambahkan catatan
+		- onSaved :
+			- Mengassign data text catatan customer (saat menambahkan catatan pesanan) ketika customer selesai menginput data pada formfield.
+	- Class TextButton
+		- onPressed : 
+			- Membuat catatan pesanan dengan menjalankan function asynchronous yang telah dibuat yaitu buatCatatan(request, catatan, context) dan memvalidasi inputannya. 
+	- OutlinedButton
+		- onPressed :
+			- Mengarahkan ke page untuk menambahkan catatan pesanan customer
+
+- __Landing Page__:
+	- Class: TextButton
+      - OnPressed: 
+	      - Navigasi ke suatu page tertentu untuk mengakses fitur aplikasi.
+	- Class: ListTile -> Drawer
+      - OnTap: 
+	      - Navigasi ke suatu page tertentu untuk mengakses fitur aplikasi.
+
+- __Order page for Seller__ : 
+	- Class: TextButton
+		- OnPressed: 
+			- Navigasi ke suatu page tertentu seperti page lihat pesanan, detail pesanan, tambah gratisan, dan lain semacamnya. 
+            - Menambahkan gratisan dengan fungsi asinkronus addGratisan() sehingga data pada Django juga ikut terupdate.
+            - Menyelesaikan suatu pesanan yang ada di list daftar pesanan dengan fungsi asinkronus donePesanan() sehingga data pada Django juga ikut terupdate.
+            - Dengan bantuan formkey GlobalKey<FormState>, suatu form (sebagai contoh: Add Gratisan) dapat memvalidasi form agar pengisian inputnya valid.
+	- Class: TextFormField
+      - OnChanged:
+      	- Mengassign data nama makanan dan nama customer (saat menambahkan gratisan) ketika persona mengganti input data pada formfield.
+      - OnSaved:
+      	- Mengassign data nama makanan dan nama customer (saat menambahkan gratisan) ketika persona selesai menginput data pada formfield.
+	- Class: InkWell
+      - OnTap:
+      	- Dismiss popup dan melakukan refresh setState() agar dapat memberi tahu Flutter bahwa terdapat data yang berubah (contoh: ketika menandakan selesainya pesanan).
+
+- __Restaurant Page__ :
+	- Class TextButton
+		- OnPressed:
+          - Navigasi ke suatu page tertentu seperti page edit makanan, kembali ke page sebelumnya. 
+          - Menghapus makanan dengan menjalankan fungsi asinkronus deleteMakanan(request, id).
+          - Mengupdate makanan dengan menjalankan fungsi asinkronus updateMakanan(request, _makanan) dan memvalidasi input form pada page edit makanan.
+          - Membuat makanan dengan menjalankan fungsi asinkronus buatMakanan(request, _makanan) dan memvalidasi input form pada page tambah makanan.
+	- Class Container
+		- OnTap
+			- Navigasi ke page tertentu seperti detail makanan
+  - Class: TextFormField
+  	- OnChanged:
+  		- Mengassign data nama makanan (saat menambahkan makanan atau mengedit detail makanan) ketika 		pengguna mengganti input data pada formfield.
+  	- OnSaved:
+  		- Mengassign data nama makanan (saat menambahkan makanan atau mengedit detail makanan) ketika pengguna selesai menginput data pada formfield.
+		
+
